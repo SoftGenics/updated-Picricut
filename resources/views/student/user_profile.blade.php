@@ -210,6 +210,7 @@
                     } else {
                         $('#failedMessage').show();
                         $('#failedMessage').text(response.message);
+                    console.log("test");
                     }
                     setTimeout(() => {
                         location.reload();
