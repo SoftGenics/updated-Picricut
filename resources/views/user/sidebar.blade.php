@@ -41,10 +41,10 @@
          
         <div class="collapse" id="dashboard-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-history"></i>History</a></li>
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-account-box"></i>Students</a></li>
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-star"></i>Ratings</a></li>
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-eye"></i>Previews</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-history"></i>History</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-account-box"></i>Students</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-star"></i>Ratings</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-eye"></i>Previews</a></li>
           </ul>
         </div></li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse1" aria-expanded="false"><i class="m-r-10 mdi mdi-chevron-right"></i><span
@@ -75,7 +75,7 @@
                                 href="dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="profile" aria-expanded="false"><i
+                                href="sprofile" aria-expanded="false"><i
                                     class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="classes.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
@@ -93,8 +93,8 @@
                                     class="hide-menu">Help center</span></a> 
        <div class="collapse" id="dashboard-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-wechat"></i>Chat with us</a></li>
-            <li class="sidebar-item"><a href="#" class="link-dark rounded"><i class="mdi mdi-phone"></i>Contact us</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-wechat"></i>Chat with us</a></li>
+            <li class="sidebar-item"><a href="#" class="sidebar-link waves-effect waves-dark sidebar-link"><i class="mdi mdi-phone"></i>Contact us</a></li>
          
           </ul>
         </div></li>

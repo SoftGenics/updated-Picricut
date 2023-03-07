@@ -32,25 +32,46 @@
             </ul>
           </div>
         </div>
+         <div class="col-lg-3">
+          <div class="services footer-item">
+            <h4></h4>
+            <ul>
+              <li><a href="#">India | english</a></li>
+              <li><a href="#">Help and support</a></li>
+              <li><a href="#">Contact us</a></li>
+             
+            </ul>
+          </div>
+        </div>
         <div class="col-lg-3">
           <div class="services footer-item">
             <h4>Services</h4>
             <ul>
-              <li><a href="#">SEO Development</a></li>
-              <li><a href="#">Business Growth</a></li>
-              <li><a href="#">Social Media Managment</a></li>
-              <li><a href="#">Website Optimization</a></li>
+              <li><a href="#">Freelancing</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">local jobs</a></li>
+              <li><a href="#">Post jobs</a></li>
+              <li><a href="#">Study material</a></li>
+              <li><a href="#">Request tutor</a></li>
+              <li><a href="#">Hire employees</a></li>
+              <li><a href="#">Get your question solved</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="community footer-item">
-            <h4>Community</h4>
+            <h4>About us</h4>
             <ul>
               <li><a href="#">Carrer advice</a></li>
-              <li><a href="#">Business Ideas</a></li>
-              <li><a href="#">Website Checkup</a></li>
-              <li><a href="#">Page Speed Test</a></li>
+              <li><a href="#">Read our blog</a></li>
+              <li><a href="#">stories</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Terms and condition</a></li>
+              <li><a href="#">Privacy policy</a></li>
+              <li><a href="#">Copyright policy</a></li>
+              <li><a href="#">Code of conduct</a></li>
+                   <li><a href="#">Security</a></li>
+                        <li><a href="#">Sitemap</a></li>
             </ul>
           </div>
         </div>

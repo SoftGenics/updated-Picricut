@@ -1,5 +1,11 @@
 @extends ('layouts.user')
 @section('content')
+<style>
+    .file-upload input[type='file'] 
+    {
+  display: none;
+}
+</style>
 <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
@@ -20,16 +26,29 @@
                     </div>
                 </div>
             </div>
-        
+            @php
+            $users=session()->get('users');
+            $user_id=$users['id'];
+            @endphp
             <div class="container-fluid">
               
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
+                            <div class="alert alert-danger" role="alert" id="failedMessage" style="display: none"></div>
+                            <div class="alert alert-success" role="alert" id="successMessage" style="display: none"></div>
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="adminlte/assets/images/users/5.jpg"
+                                <center class="m-t-30"> <img src="adminlte/assets/images/users/5.jpg" id="imgPreview" alt="pic" style="
+                                    height: 150px;
+                                    width: 150px;
+                                "
                                         class="rounded-circle" width="150" />
+                                        <div class="col-sm-12">
+                                            <label for="fileUpload" class="file-upload btn btn-warning btn-block rounded-pill shadow"><i class="fa fa-upload mr-2"></i>&nbsp change profile pic
+                                                <input id="fileUpload"  type="file">
+                                            </label>
+                                        </div>
                                     <h4 class="card-title m-t-10">Hanna Gover</h4>
                                     <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
                                     <div class="row text-center justify-content-md-center">
@@ -73,7 +92,14 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe"
+                                            <input type="text" placeholder="your name"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Parent Name/Student name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="if a student, your parent's name or vice versa"
                                                 class="form-control form-control-line">
                                         </div>
                                     </div>
@@ -85,13 +111,7 @@
                                                 id="example-email">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label class="col-md-12">Phone No</label>
                                         <div class="col-md-12">
@@ -100,12 +120,33 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
+                                        <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            <textarea rows="5" name="address"class="form-control form-control-line"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                      <div class="form-group">
+                                        <label class="col-md-12">City</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="city name"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12">State</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="state"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12">Pincode</label>
+                                        <div class="col-md-12">
+                                            <input type="number" placeholder="Pincode"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    {{-- <div class="form-group">
                                         <label class="col-sm-12">Select Country</label>
                                         <div class="col-sm-12">
                                             <select class="form-select shadow-none form-control-line">
@@ -116,7 +157,7 @@
                                                 <option>Thailand</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success text-white">Update Profile</button>
@@ -130,4 +171,53 @@
                 </div>
             
             </div>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script>
+                $(document).ready(() => {
+                    $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+    
+                    let profile;
+        const user_id = "{{ $user_id }}";
+                    $("#fileUpload").change(function () {
+                        const file = this.files[0];
+                        if (file) {
+                            let reader = new FileReader();
+                            reader.onload = function (event) {
+                                $("#imgPreview")
+                                  .attr("src", event.target.result);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                        profile = file;
+            var formData = new FormData();
+            formData.append('profile', profile);
+            formData.append('user_id', user_id);
+            $.ajax({
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'post',
+                data: formData,
+                url: "{{ route('/update-image') }}",
+                success: function (response) {
+                    if (response.success) {
+                        $('#successMessage').show();
+                        $('#successMessage').text(response.message);
+                    } else {
+                        $('#failedMessage').show();
+                        $('#failedMessage').text(response.message);
+                    }
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            });
+                    });
+                });
+            </script>
+            
             @stop

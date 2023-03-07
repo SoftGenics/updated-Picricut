@@ -108,7 +108,7 @@ Route::get('my-notification/{type}', 'App\Http\Controllers\homeController@myNoti
 
 //media route
 Route::post('/media/{id}','App\Http\Controllers\Profile_picController@mediafile')->name('media.perform');
-
+Route::post('/update-image','App\Http\Controllers\Profile_picController@update_image')->name('update-image');
 // home page route
 Route::get('/profile', function () {
     return view('tutor/user_profile');
