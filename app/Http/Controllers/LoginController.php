@@ -7,7 +7,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Login\RememberMeExpiration;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Profile_pics;
 class LoginController extends Controller
 {
     use RememberMeExpiration;
@@ -35,6 +35,13 @@ class LoginController extends Controller
                 session()->put('users', $user);
 
  session()->put('userlevel', 1);
+ $ids=$user->id;
+                $userimg=Profile_pics::where('user_id',$ids)->first();
+                if($userimg)
+                {
+                   $img=$userimg->image;
+                   session()->put('userimage',$img);
+                }
                 alert()->message('Login successfully');
                 return redirect()->intended('my-notification/success');
                 

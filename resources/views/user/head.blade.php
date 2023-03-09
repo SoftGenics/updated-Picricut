@@ -11,3 +11,4 @@
     <!-- Custom CSS -->
     <link href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/adminlte/dist/css/style.min.css" rel="stylesheet">
     
+    <meta name="csrf-token" content="{{ csrf_token() }}" />

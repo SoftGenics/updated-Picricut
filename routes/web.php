@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\Profile_picController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +109,9 @@ Route::get('my-notification/{type}', 'App\Http\Controllers\homeController@myNoti
 
 //media route
 Route::post('/media/{id}','App\Http\Controllers\Profile_picController@mediafile')->name('media.perform');
-Route::post('/update-image','App\Http\Controllers\Profile_picController@update_image')->name('update-image');
+
+Route::post('update-image',[Profile_picController::class,'update_image'])->name('update-image');
+//Route::get('update-image',[Profile_picController::class,'update_image'])->name('update-image');
 // home page route
 Route::get('/profile', function () {
     return view('tutor/user_profile');

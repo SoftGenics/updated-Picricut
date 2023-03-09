@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile_pic extends Model
+class Profile_pics extends Model
 {
+    
     use HasFactory;
+    protected $fillable = [
+        'user_id', 'image'
+      ];
 }
+?>

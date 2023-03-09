@@ -39,11 +39,21 @@
                             <div class="alert alert-danger" role="alert" id="failedMessage" style="display: none"></div>
                             <div class="alert alert-success" role="alert" id="successMessage" style="display: none"></div>
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="adminlte/assets/images/users/5.jpg" id="imgPreview" alt="pic" style="
+                                <center class="m-t-30"> 
+                                    @if(Session::get('userimage'))
+                                    
+                                    <img src="{{session()->get('userimage')}}" id="imgPreview" alt="pic" style="
                                     height: 150px;
-                                    width: 150px;
-                                "
+                                    width: 150px;"
                                         class="rounded-circle" width="150" />
+                                    
+                                    @else
+                                    
+                                        <img src="adminlte/assets/images/users/5.jpg" id="imgPreview" alt="pic" style="
+                                        height: 150px;
+                                        width: 150px;"
+                                            class="rounded-circle" width="150" />
+                                            @endif
                                         <div class="col-sm-12">
                                             <label for="fileUpload" class="file-upload btn btn-warning btn-block rounded-pill shadow"><i class="fa fa-upload mr-2"></i>&nbsp change profile pic
                                                 <input id="fileUpload"  type="file">
@@ -192,6 +202,7 @@
                             };
                             reader.readAsDataURL(file);
                         }
+                        console.log("hl");
                         profile = file;
             var formData = new FormData();
             formData.append('profile', profile);
@@ -202,7 +213,7 @@
                 processData: false,
                 type: 'post',
                 data: formData,
-                url: "{{ route('/update-image') }}",
+                url: "{{ route('update-image') }}",
                 success: function (response) {
                     if (response.success) {
                         $('#successMessage').show();
@@ -215,6 +226,11 @@
                     setTimeout(() => {
                         location.reload();
                     }, 2000);
+                },
+                error: function(data){
+                
+                var errors = data.responseJSON;
+                console.log(errors);
                 }
             });
                     });
