@@ -1,195 +1,49 @@
 
 @extends ('layouts.app')
 @section('content')
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+  <style>
+    .jsgrid-pager-current-page, .jsgrid-pager-nav-button a, .jsgrid-pager-page a {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #67757c;
+    border: 1px solid #ddd;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #3c763d;
+}
+  </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
  
 
-.input-box{
-  position: relative;
-}
 
-.input-box i {
-  position: absolute;
-  right: 13px;
-  top:15px;
-  color:#ced4da;
-
-}
 .fn{
   font-family: 'Merienda', cursive;
 }
-.col-lg-8 .card{
-     
-      border: 5px solid rgba(0, 0, 0, 0.125);
-    border-radius: 2.25rem;
-}
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: #eee;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 39px
-}
-.card.user-card {
-    border-top: none;
-    -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,0.05), 0 -2px 1px -2px rgba(0,0,0,0.04), 0 0 0 -1px rgba(0,0,0,0.05);
-    box-shadow: 0 0 1px 2px rgba(0,0,0,0.05), 0 -2px 1px -2px rgba(0,0,0,0.04), 0 0 0 -1px rgba(0,0,0,0.05);
-    -webkit-transition: all 150ms linear;
-    transition: all 150ms linear;
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
 }
 
-.card {
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-    border: none;
-    margin-bottom: 30px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+#exTab3 .tab-content {
+  color : white;
+  width: 100%;
+  
+  
 }
-
-.card .card-header {
-    background-color: transparent;
-    border-bottom: none;
-    padding: 25px;
-}
-
-.card .card-header h5 {
-    margin-bottom: 0;
-    color: #222;
-    font-size: 14px;
-    font-weight: 600;
-    display: inline-block;
-    margin-right: 10px;
-    line-height: 1.4;
-}
-
-.card .card-header+.card-block, .card .card-header+.card-block-big {
-    padding-top: 0;
-}
-
-.user-card .card-block {
-    text-align: center;
-}
-
-.card .card-block {
-    padding: 25px;
-}
-
-.user-card .card-block .user-image {
-    position: relative;
-    margin: 0 auto;
-    display: inline-block;
-    padding: 5px;
-    width: 110px;
-    height: 110px;
-}
-
-.user-card .card-block .user-image img {
-    z-index: 20;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-        width: 100px;
-    height: 100px;
-}
-
-.img-radius {
-    border-radius: 50%;
-}
-
-.f-w-600 {
-    font-weight: 600;
-}
-
-.m-b-10 {
-    margin-bottom: 10px;
-}
-
-.m-t-25 {
-    margin-top: 25px;
-}
-
-.m-t-15 {
-    margin-top: 15px;
-}
-
-.logo{
-	border: 1px solid #f6f6f6;
-}
-
-.logo img{
-	width: 60px;
-	height: 60px;
-}
-.card{
-	display: block;
-	padding: 3vh 2vh 7vh 5vh;
-	border: none;
-	border-radius: 15px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	max-width: 500px;
-}
-.header{
-	margin-bottom: 5vh;
-	margin-right: 2vh;
-	float: right;
-	margin-left: auto;
-}
-
-.far{
-	color: rgba(15, 198, 239, 0.97)!important;
-	font-size: 16px!important;
-}
-p.heading{
-	font-weight: bold;
-	font-size: 25px;
-}
-p.text-muted{
-	font-size: 17px;
-	font-weight: bold;
-	color: #a1a7ae!important;
-}
-.btn-sm{
-	border-radius: 8px;
-}
-.fas.fa-users{
-	color: rgba(15, 198, 239, 0.97)!important;
-}
-.mutual span{
-	font-size: 14px;
-	color: #adb5bd;
-	font-weight: bold;
-}
-.btn-primary.btn-lg{
-    border-radius: 30px;
-    width: 90%;
-    border: none;
-    background: #8c02e3;
-}
-.btn-dark.btn-lg{
-    border-radius: 30px;
-    width: 90%;
-    border: none;
-    background: #dee2e6;
-}
-.btn-dark span{
-	font-size: 14px;
-	text-align: center;
-	color: #0000008c;
-	font-weight: bold;
-}
-.btn-primary span{
-	font-size: 14px;
-	text-align: center;
-	color: #fff;
-	font-weight: bold;
-}
+ 
 
 </style>
 <header class="py-5 bg-light border-bottom mb-4 fo" style="margin-top: 123px;">
@@ -201,303 +55,603 @@ p.text-muted{
                 </div>
             </div>
         </header>
-<div class="container pt-5">
-              <div class="row">
-                <div class="col-md-8 order-md-2 col-lg-9">
-                  <div class="container-fluid">
-                    <div class="row   mb-5">
-                      <div class="col-12">
-                     
-                        <div class="btn-group float-md-right ml-3">
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
-                        </div>
-                       
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                        
-                        <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                       </div>
-                      
-                      <div class="col-lg-6 col-md-6">
-                    <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                      </div>
-                      </div>
-                         <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                        
-                        <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                       </div>
-                      
-                      <div class="col-lg-6 col-md-6">
-                    <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                      </div>
-                      </div>
-                         <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                        
-                        <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                       </div>
-                      
-                      <div class="col-lg-6 col-md-6">
-                    <div class="card mx-auto">
-		<div class="row">
-			<div class="logo ml-3 mb-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxDRpxI5gXgaVmnO-VgcVUNOkca91jIpS75Flbzkz5W_5g5_V5&usqp=CAU"></div>
-			<div class="header right"><i class="bi bi-three-dots-vertical"></i></div>
-		</div>
-			<div class="card-title">
-				<p class="heading">Lead Product Design&nbsp;<i class="bi bi-compass"></i></p>
-			</div>
-			
-			<p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
-			<div class="row btnrow my-4">
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
-				<div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
-			</div>
-
-			<div class="mutual"><i class="bi bi-people"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
-			<div class="row btnsubmit mt-4">
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
-				</div>
-				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
-				</div>
-			</div>
-	</div>
-                      </div>
-                      </div>
-                      
-                    <div class="row sorting mb-5 mt-5">
-                      <div class="col-12">
-                        <a class="btn btn-light">
-                          <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
-                        <div class="btn-group float-md-right ml-3">
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
-                          <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
-                        </div>
-                       
-                      </div>
-                    </div>
-                  </div>
-                </div><div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
-                  <h3 class="mt-0 mb-5">Showing <span class="text-primary">12</span> Freelancing projects</h3>
-                  <h6 class="text-uppercase font-weight-bold mb-3">Subjects</h6>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-1">
-                      <label class="custom-control-label" for="category-1">Content writing</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-2">
-                      <label class="custom-control-label" for="category-2">Digital &amp; social marketing</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-3">
-                      <label class="custom-control-label" for="category-3">Graphic design</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-4">
-                      <label class="custom-control-label" for="category-4">Software Development</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-5">
-                      <label class="custom-control-label" for="category-5">Web Development</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="category-6">
-                      <label class="custom-control-label" for="category-6">SEO</label>
-                    </div>
-                  </div>
-                  <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                  <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">Pincode</h6>
-                  <div class="price-filter-control">
-                    <input type="number" class="form-control w-50 pull-left mb-2" placeholder="pincode" id="price-min-control">
-                   
-                  </div>
-                  <br>
-                  <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                  <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">State</h6>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="filter-size-1">
-                      <label class="custom-control-label" for="filter-size-1">Odisha</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="filter-size-2">
-                      <label class="custom-control-label" for="filter-size-2">Maharashtra</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="filter-size-3">
-                      <label class="custom-control-label" for="filter-size-3">Punjab</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="filter-size-4">
-                      <label class="custom-control-label" for="filter-size-4">Telangana</label>
-                    </div>
-                  </div>
-                  <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="filter-size-5">
-                      <label class="custom-control-label" for="filter-size-5">West bengal</label>
-                    </div>
-                  </div>
-                  <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                  <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">Price /-Hour</h6>
-                  <div class="price-filter-control">
-                    <input type="number" class="form-control w-50 pull-left mb-2" placeholder="Min" id="price-min-control">
-                    <input type="number" class="form-control w-50 pull-right" placeholder="Max" id="price-max-control">
-                  </div>
-                  
-                  <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200" data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
-                  <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                  <a href="#" class="btn btn-lg btn-block btn-primary mt-5">Update Results</a>
+        
+        <div class="container"></div>
+        <div id="exTab3" class="container" style="width: 100%">	
+        <ul  class="nav nav-pills">
+              <li class="active">
+                <a  href="#1b" data-toggle="tab"><h3>All Jobs<h3></a>
+              </li>
+              <li><a href="#2b" data-toggle="tab"><h3>Premium jobs<h3></a>
+              </li>
+             
+            </ul>
+        
+              <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1b" style="width: 1400px">
+                  <div id="grid_table"></div>
                 </div>
-
+                <div class="tab-pane" id="2b" style="width: 1400px">
+                  <div id="grid_table1"></div>
+                </div>
+                
               </div>
-            </div>
+          </div>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+          
+          <script>
+            var db = {
+            loadData: function (filter) {
+              return $.grep(this.clients, function (client) {
+                return (
+                  (!filter.ID || client.Name.indexOf(filter.ID) > -1) &&
+                  (!filter.Job_Title || client.Job_Title.indexOf(filter.Job_Title) > -1) &&
+                  (!filter.Pincode || client.Pincode.indexOf(filter.Pincode) > -1) &&
+                  (!filter.Mobile || client.Mobile.indexOf(filter.Mobile) > -1) &&
+                  (!filter.Area || client.Area.indexOf(filter.Area) > -1) &&
+                  (!filter.Email || client.Email.indexOf(filter.Email) > -1) &&
+                  (!filter.Mode || client.Mode.indexOf(filter.Mode) > -1) &&
+                  (!filter.Segment || client.Segment.indexOf(filter.Segment) > -1) &&
+                  (!filter.Any_other_details || client.Any_other_details.indexOf(filter.Any_other_details) > -1) &&
+                  (!filter.Gender || client.Gender === filter.Gender)
+                  
+                );
+              });
+            },
+          
+            
+          };
+          window.db = db;
+          db.clients =  [
+            {
+            ID: "1",
+            Date: "3/16/2023",
+            Job_Title: "editor",
+            Pincode: 700124,
+            Mobile: "1234567890",
+            Area: "south",
+            Email: "a@g.com",
+            Mode: "Offline",
+            Segment: "content editor",
+            Any_other_details: "54",
+            Gender: "Online",
+          },
+          {
+            ID: "2",
+            Date: "5/21/2023",
+            Job_Title: "writer",
+            Pincode: 560076,
+            Mobile: "9876543210",
+            Area: "east",
+            Email: "b@h.com",
+            Mode: "Offline",
+            Segment: "technical writer",
+            Any_other_details: "32",
+            Gender: "FeOnline",
+          },
+          {
+            ID: "3",
+            Date: "7/12/2023",
+            Job_Title: "proofreader",
+            Pincode: 110001,
+            Mobile: "8899776655",
+            Area: "west",
+            Email: "c@t.com",
+            Mode: "Online",
+            Segment: "copy editor",
+            Any_other_details: "45",
+            Gender: "Online",
+          },
+          {
+            ID: "4",
+            Date: "9/2/2023",
+            Job_Title: "journalist",
+            Pincode: 600002,
+            Mobile: "7788996655",
+            Area: "north",
+            Email: "d@m.com",
+            Mode: "Online",
+            Segment: "news editor",
+            Any_other_details: "28",
+            Gender: "FeOnline",
+          },
+          {
+            ID: "5",
+            Date: "11/8/2023",
+            Job_Title: "content writer",
+            Pincode: 400001,
+            Mobile: "7766554433",
+            Area: "south",
+            Email: "e@z.com",
+            Mode: "Online",
+            Segment: "article editor",
+            Any_other_details: "39",
+            
+          },
+          {
+            ID: "6",
+            Date: "1/19/2024",
+            Job_Title: "reporter",
+            Pincode: 500001,
+            Mobile: "9988776655",
+            Area: "east",
+            Email: "f@q.com",
+            Mode: "Online",
+            Segment: "broadcast editor",
+            Any_other_details: "26",
+            
+          },
+          {
+            ID: "7",
+            Date: "3/8/2024",
+            Job_Title: "copywriter",
+            Pincode: 641004,
+            Mobile: "8877665544",
+            Area: "west",
+            Email: "g@p.com",
+            Mode: "Offline",
+            Segment: "advertising editor",
+            Any_other_details: "41",
+            
+          },
+            {
+                Id:"7",
+              Date: "3/16/2023",
+              Job_Title: "editor",
+              Pincode: 700124,
+              Mobile: "1234567890",
+              Area: "south",
+              Email: "a@g.com",
+              Mode: "Offline",
+              Segment: "content editor",
+              Any_other_details: "54",
+              
+            },
+            {
+            Id: "8",
+            Date: "3/16/2023",
+            Job_Title: "editor",
+            Pincode: 700124,
+            Mobile: "1234567890",
+            Area: "south",
+            Email: "a@g.com",
+            Mode: "Offline",
+            Segment: "content editor",
+            Any_other_details: "54",
+            
+          },
+          {
+            Id: "9",
+            Date: "5/5/2023",
+            Job_Title: "writer",
+            Pincode: 560076,
+            Mobile: "9876543210",
+            Area: "east",
+            Email: "b@h.com",
+            Mode: "Offline",
+            Segment: "technical writer",
+            Any_other_details: "32",
+            
+          },
+          {
+            Id: "10",
+            Date: "7/23/2023",
+            Job_Title: "proofreader",
+            Pincode: 110001,
+            Mobile: "8899776655",
+            Area: "west",
+            Email: "c@t.com",
+            Mode: "Online",
+            Segment: "copy editor",
+            Any_other_details: "45",
+            
+          },
+          {
+            Id: "11",
+            Date: "9/18/2023",
+            Job_Title: "journalist",
+            Pincode: 600002,
+            Mobile: "7788996655",
+            Area: "north",
+            Email: "d@m.com",
+            Mode: "Online",
+            Segment: "news editor",
+            Any_other_details: "28",
+            
+          },
+          {
+            Id: "12",
+            Date: "11/1/2023",
+            Job_Title: "content writer",
+            Pincode: 400001,
+            Mobile: "7766554433",
+            Area: "south",
+            Email: "e@z.com",
+            Mode: "Online",
+            Segment: "article editor",
+            Any_other_details: "39",
+            
+          },
+          {
+            ID: "13",
+            Date: "1/19/2024",
+            Job_Title: "reporter",
+            Pincode: 500001,
+            Mobile: "9988776655",
+            Area: "east",
+            Email: "f@q.com",
+            Mode: "Online",
+            Segment: "broadcast editor",
+            Any_other_details: "26",
+            
+          },
+          {
+            ID: "14",
+            Date: "3/8/2024",
+            Job_Title: "copywriter",
+            Pincode: 641004,
+            Mobile: "8877665544",
+            Area: "west",
+            Email: "g@p.com",
+            Mode: "Offline",
+            Segment: "advertising editor",
+            Any_other_details: "41",
+            
+          },
+            {
+                Id:"15",
+              Date: "3/16/2023",
+              Job_Title: "editor",
+              Pincode: 700124,
+              Mobile: "1234567890",
+              Area: "south",
+              Email: "a@g.com",
+              Mode: "Offline",
+              Segment: "content editor",
+              Any_other_details: "54",
+              
+            },
+            {
+            Id: "16",
+            Date: "3/16/2023",
+            Job_Title: "editor",
+            Pincode: 700124,
+            Mobile: "1234567890",
+            Area: "south",
+            Email: "a@g.com",
+            Mode: "Offline",
+            Segment: "content editor",
+            Any_other_details: "54",
+            
+          },
+          {
+            Id: "17",
+            Date: "5/5/2023",
+            Job_Title: "writer",
+            Pincode: 560076,
+            Mobile: "9876543210",
+            Area: "east",
+            Email: "b@h.com",
+            Mode: "Offline",
+            Segment: "technical writer",
+            Any_other_details: "32",
+            
+          },
+          {
+            Id: "18",
+            Date: "7/23/2023",
+            Job_Title: "proofreader",
+            Pincode: 110001,
+            Mobile: "8899776655",
+            Area: "west",
+            Email: "c@t.com",
+            Mode: "Online",
+            Segment: "copy editor",
+            Any_other_details: "45",
+            
+          },
+            
+          ];
+          db.mode = [
+            { Name: "", Id: '' },
+             { Name: "Online", Id: 'Online' },
+             { Name: "Offline", Id: 'Offline' },
+          ];
+          
+           
+          
+            $('#grid_table').jsGrid({
+          
+              width: "1500px",
+   height: "auto",
+   filtering: true,
+      sorting: true,
+      paging: true,
+      autoload: true,
+      
+      pageSize: 15,
+      pageButtonCount: 5,
+   deleteConfirm: "Do you really want to delete data?",
+          
+            // controller: {
+               // ajax data load from database////////////////////////////////
+            //   loadData: function(filter){
+            //    return $.ajax({
+            //     type: "GET",
+            //     url: "fetch_data.php",
+            //     data: filter
+            //    });
+            //   },
+              
+             //},
+             headerRowRenderer: function () {
+              var $result = $("<tr>").height(0)
+                .append($("<th>").width(50))
+                .append($("<th>").width(50))
+                .append($("<th>").width(30))  
+                .append($("<th>").width(70))
+                .append($("<th>").width(50))
+                .append($("<th>").width(50))
+                .append($("<th>").width(50))
+                  .append($("<th>").width(50))
+                .append($("<th>").width(50))
+                .append($("<th>").width(50))  
+                .append($("<th>").width(70));
+              $result = $result.add($("<tr>")
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Status"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Date"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("ID"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Segment"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Job_Title"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Area"))
+                  .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Pincode"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Mobile"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Email"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Mode"))
+                .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Any_other_details")));
+                   return $result;
+              },
+             controller: db,
+             fields: [
+              {
+            type: "control", editButton: false, deleteButton: false,
+            itemTemplate: function(value, item) {
+                var $iconPencil = "Apply";
+              //    color: black;
+            //font-size: 2.5em;
+            //$("<i>").attr({class: "mdi mdi-arrow-right-box",style:"color:black;font-size: 2.5em;"});
+          
+                var $customEditButton = $("<button>")
+                    .attr({class: "btn btn-warning btn-xs"})
+                    .attr({role: "button"})
+                    .attr({title: jsGrid.fields.control.prototype.editButtonTooltip})
+                    .attr({id: "btn-edit-" + item.ID})
+                    .click(function(e) {
+                        alert("ID: " + item.ID);
+                        // document.Mode.href = item.id + "/edit";
+                        e.stopPropagation();
+                    })
+                    .append($iconPencil);
+               
+          
+                return $("<div>").attr({class: "btn-toolbar"})
+                    .append($customEditButton);
+                    
+            },
+          
+          },
+              
+              {
+               name: "Date", 
+               type: "date", myCustomProperty: "bar" ,
+            width: 50, 
+            
+              },
+              {
+               name: "ID",
+            type: "number",
+            width:30,
+            
+              },
+              {
+               name: "Segment", 
+            type: "text", 
+            width: 70, 
+            validate: "required"
+              },
+              {
+               name: "Job_Title", 
+            type: "text", 
+            width: 50, 
+            validate: "required"
+              },
+              {
+               name: "Area", 
+            type: "text", 
+            width: 50, 
+            validate: "required"
+              },
+              {
+               name: "Pincode", 
+            type: "number", 
+            width: 50, 
+            validate: "required"
+              },
+              {
+               name: "Mobile", 
+            type: "text", 
+            width: 50, 
+            validate: "required"
+              },
+              
+              {
+               name: "Email", 
+            type: "text", 
+            width: 50, 
+            validate: "required"
+              },
+              {
+               name: "Mode", 
+               type: "select", items: db.mode,valueField: "Id", textField: "Name",
+            width: 50
+              },
+              
+              {
+               name: "Any_other_details", 
+            type: "text", 
+            width: 70, 
+            
+              }
+            
+             ]
+          
+            });
+            $('#grid_table1').jsGrid({
+          
+          width: "100%",
+height: "auto",
+filtering: true,
+  sorting: true,
+  paging: true,
+  autoload: true,
+  
+  pageSize: 15,
+  pageButtonCount: 5,
+deleteConfirm: "Do you really want to delete data?",
+      
+        // controller: {
+           // ajax data load from database////////////////////////////////
+        //   loadData: function(filter){
+        //    return $.ajax({
+        //     type: "GET",
+        //     url: "fetch_data.php",
+        //     data: filter
+        //    });
+        //   },
+          
+         //},
+         headerRowRenderer: function () {
+          var $result = $("<tr>").height(0)
+            .append($("<th>").width(50))
+            .append($("<th>").width(50))
+            .append($("<th>").width(30))  
+            .append($("<th>").width(70))
+            .append($("<th>").width(50))
+            .append($("<th>").width(50))
+            .append($("<th>").width(50))
+              .append($("<th>").width(50))
+            .append($("<th>").width(50))
+            .append($("<th>").width(50))  
+            .append($("<th>").width(70));
+          $result = $result.add($("<tr>")
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Status"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Date"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("ID"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Segment"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Job_Title"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Area"))
+              .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Pincode"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Mobile"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Email"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Mode"))
+            .append($("<th class='jsgrid-cell js-header'>").attr("colspan", 1).text("Any_other_details")));
+               return $result;
+          },
+         controller: db,
+         fields: [
+          {
+        type: "control", editButton: false, deleteButton: false,
+        itemTemplate: function(value, item) {
+            var $iconPencil = "Apply";
+          //    color: black;
+        //font-size: 2.5em;
+        //$("<i>").attr({class: "mdi mdi-arrow-right-box",style:"color:black;font-size: 2.5em;"});
+      
+            var $customEditButton = $("<button>")
+                .attr({class: "btn btn-warning btn-xs"})
+                .attr({role: "button"})
+                .attr({title: jsGrid.fields.control.prototype.editButtonTooltip})
+                .attr({id: "btn-edit-" + item.ID})
+                .click(function(e) {
+                    alert("ID: " + item.ID);
+                    // document.Mode.href = item.id + "/edit";
+                    e.stopPropagation();
+                })
+                .append($iconPencil);
+           
+      
+            return $("<div>").attr({class: "btn-toolbar"})
+                .append($customEditButton);
+                
+        },
+      
+      },
+          
+          {
+           name: "Date", 
+           type: "date", myCustomProperty: "bar" ,
+        width: 50, 
+        
+          },
+          {
+           name: "ID",
+        type: "number",
+        width:30,
+        
+          },
+          {
+           name: "Segment", 
+        type: "text", 
+        width: 70, 
+        validate: "required"
+          },
+          {
+           name: "Job_Title", 
+        type: "text", 
+        width: 50, 
+        validate: "required"
+          },
+          {
+           name: "Area", 
+        type: "text", 
+        width: 50, 
+        validate: "required"
+          },
+          {
+           name: "Pincode", 
+        type: "number", 
+        width: 50, 
+        validate: "required"
+          },
+          {
+           name: "Mobile", 
+        type: "text", 
+        width: 50, 
+        validate: "required"
+          },
+          
+          {
+           name: "Email", 
+        type: "text", 
+        width: 50, 
+        validate: "required"
+          },
+          {
+           name: "Mode", 
+           type: "select", items: db.mode,valueField: "Id", textField: "Name",
+        width: 50
+          },
+          
+          {
+           name: "Any_other_details", 
+        type: "text", 
+        width: 70, 
+        
+          }
+        
+         ]
+      
+        });
+      
+          </script>
   @stop
