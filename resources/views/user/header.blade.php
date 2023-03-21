@@ -67,9 +67,18 @@
                                 @endif
                                 
                                
+                                @if(Session::get('userimage'))
+                                    
+                                <img src="{{session()->get('userimage')}}" id="imgPreview" alt="pic" 
+                               alt="user" class="rounded-circle" width="31" />
+                                
+                                @else
+                                
+                                    <img src="adminlte/assets/images/users/5.jpg" id="imgPreview" alt="pic" alt="pic" 
+                                    alt="user" class="rounded-circle" width="31" />
+                                        @endif                 
                                
-                               
- <img src="adminlte/assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
+ 
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>

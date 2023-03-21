@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\Profile_picController;
-
+use App\Http\Controllers\ticketController;
+use App\Http\Controllers\TutorController;
+use App\Http\Controllers\srequirementController;
+use App\Http\Controllers\PersanalInfocontroller;
+use App\Http\Controllers\QualificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,9 +60,6 @@ Route::any('/update', 'RegisterController@updateuser')->name('update.perform');
     });
     
     
-    Route::get('/signup',function () {
-        return view('pages/signup');
-    });
     Route::get('/login', function(){
         return view('pages/signin');
     }
@@ -107,18 +108,110 @@ Route::controller(App\Http\Controllers\AuthOtpController::class)->group(function
 
 Route::get('my-notification/{type}', 'App\Http\Controllers\homeController@myNotification');
 
-//media route
-Route::post('/media/{id}','App\Http\Controllers\Profile_picController@mediafile')->name('media.perform');
 
+//student route begins
+Route::get('/insight', function () {
+    return view('student/analytics');
+});
+Route::get('/srefer', function () {
+    return view('student/refferal');
+});
+Route::get('/scontact', function () {
+    return view('student/contact');
+});
+Route::get('/sprofile', function () {
+    return view('student/user_profile');
+});
+Route::get('/atutors', function () {
+    return view('student/atutors');
+});
+Route::get('/ftutors', function () {
+    return view('student/ftutors');
+});
+Route::get('/rtutors', function () {
+    return view('student/rtutors');
+});
+Route::get('/stutors', function () {
+    return view('student/stutors');
+});
+Route::get('/spostnew', function () {
+    return view('student/spostnew');
+});
+Route::get('/fpostnew', function () {
+    return view('student/fpostnew');
+});
+Route::get('/apostnew', function () {
+    return view('student/apostnew');
+});
+Route::get('/schats', function () {
+    return view('student/schats');
+});
+Route::get('/badges', function () {
+    return view('student/badges');
+});
+//ends
 Route::post('update-image',[Profile_picController::class,'update_image'])->name('update-image');
-//Route::get('update-image',[Profile_picController::class,'update_image'])->name('update-image');
-// home page route
+Route::post('details',[Profile_picController::class,'details_update'])->name('details-update');
+
+Route::post('ticket',[ticketController::class,'ticket'])->name('ticket-add');
+Route::post('addrequirment',[srequirementController::class,'addrequirment'])->name('add_requirment');
+
+Route::delete('deleterequirement/{id}',[srequirementController::class,'deleterequirement'])->name('deleterequirement');
+//ends
+//tutor
 Route::get('/profile', function () {
     return view('tutor/user_profile');
 });
 Route::get('/upgrade', function () {
     return view('tutor/upgrade');
 });
+Route::get('/analytics', function () {
+    return view('tutor/analytics');
+});
+Route::get('/refferal', function () {
+    return view('tutor/refferal');
+});
+Route::get('/media', function () {
+    return view('tutor/media');
+});
+Route::get('/chat', function () {
+    return view('tutor/chat');
+});
+Route::get('/chatus', function () {
+    return view('tutor/chatus');
+});
+Route::get('/cont', function () {
+    return view('tutor/contact');
+});
+Route::get('/slist', function () {
+    return view('tutor/studentlist');
+});
+Route::get('/hslist', function () {
+    return view('tutor/hslist');
+});
+Route::get('/testm', function () {
+    return view('tutor/testm');
+});
+Route::get('/studentlist', function () {
+    return view('pages/studentlist');
+    
+});
+Route::get('/tasks', function () {
+    return view('tutor/tasks');
+});
+// end tutor
+//media route
+Route::post('/media/{id}','App\Http\Controllers\Profile_picController@mediafile')->name('media.perform');
+
+Route::post('tmedia',[TutorController::class,'upload_media'])->name('Tutor_media');
+Route::post('addinfo',[PersanalInfocontroller::class,'addinfo'])->name('add_info');
+//Route::get('update-image',[Profile_picController::class,'update_image'])->name('update-image');
+Route::post('addQualification',[QualificationController::class,'addQualification'])->name('add_Qualification');
+
+
+
+// home page route
+
 Route::get('/tutors', function () {
     return view('pages/browse-tutor');
     
@@ -152,35 +245,84 @@ Route::get('/about', function () {
     return view('pages/about');
     
 });
-//user 
-Route::get('/media', function () {
-    return view('tutor/media');
-    
+
+//Employee
+Route::get('/spostnew', function () {
+    return view('employer/spostnew');
+});
+Route::get('/ajobs', function () {
+    return view('employer/ajobs');
+});
+Route::get('/rjobs', function () {
+    return view('employer/rjobs');
+});
+Route::get('/sjobs', function () {
+    return view('employer/sjobs');
+});
+Route::get('/fjobs', function () {
+    return view('employer/fjobs');
+});
+Route::get('/candidates', function () {
+    return view('employer/candidates');
+});
+Route::get('/itv', function () {
+    return view('employer/itv');
+});
+Route::get('/resume', function () {
+    return view('employer/resume');
+});
+Route::get('/econtact', function () {
+    return view('employer/contact');
+});
+Route::get('/echat', function () {
+    return view('employer/chat');
+});
+Route::get('/eprofile', function () {
+    return view('employer/user_profile');
 });
 
-Route::get('/chat', function () {
-    return view('pages/chat');
-    
+//job seeker
+
+Route::get('/ajjobs', function () {
+    return view('jobseeker/ajobs');
 });
-Route::get('/studentlist', function () {
-    return view('pages/studentlist');
-    
+Route::get('/apjobs', function () {
+    return view('jobseeker/apjobs');
 });
-Route::get('/refferal', function () {
-    return view('tutor/refferal');
-    
+Route::get('/comjobs', function () {
+    return view('jobseeker/comjobs');
 });
-//student route begins
-Route::get('/insight', function () {
-    return view('student/analytics');
+Route::get('/sjjobs', function () {
+    return view('jobseeker/sjjobs');
 });
-Route::get('/srefer', function () {
-    return view('student/refferal');
+Route::get('/jchats', function () {
+    return view('jobseeker/chat');
 });
-Route::get('/scontact', function () {
-    return view('student/contact');
+Route::get('/ljobs', function () {
+    return view('jobseeker/ljobs');
 });
-Route::get('/sprofile', function () {
-    return view('student/user_profile');
+Route::get('/crv', function () {
+    return view('jobseeker/crv');
 });
-//ends
+Route::get('/train', function () {
+    return view('jobseeker/train');
+});
+Route::get('/jchatus', function () {
+    return view('jobseeker/chatus');
+});
+Route::get('/jrefer', function () {
+    return view('jobseeker/jrefer');
+});
+Route::get('/jupgrade', function () {
+    return view('jobseeker/upgrade');
+});
+Route::get('/jprofile', function () {
+    return view('jobseeker/user_profile');
+});
+Route::get('/jcontact', function () {
+    return view('jobseeker/contact');
+});
+
+
+
+

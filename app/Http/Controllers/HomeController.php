@@ -15,8 +15,13 @@ class HomeController extends Controller
     public function myNotification($type)
     {
         switch ($type) {
+            case 'uploadmedia':
+                alert()->message('media file uploaded');
+                return redirect()->intended('media');
+                break;
             case 'message':
-                alert()->message('Sweet Alert with message.');
+                alert()->message('Message send success');
+                return redirect()->intended('/sprofile');
                 break;
             case 'updatesuccess':
                 return redirect()->intended('/dashboard');

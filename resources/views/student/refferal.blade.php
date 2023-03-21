@@ -1,3 +1,17 @@
+@if(Session::has('users'))  
+
+
+@php
+$users =Session::get('users');  
+
+@endphp 
+
+@else
+@include('pages.signin')
+@endif
+
+
+
 @extends ('layouts.user')
 @section('content')
 <style>
@@ -56,9 +70,9 @@
               <form>
                 <div class="js-focus-state mb-2">
                   <div class="input-group">
-                    <input id="referralLink" type="text" class="form-control" value="https://lorem.links.com/sfs/some links/" disabled>
+                    <input id="referralLink" type="text" class="form-control" value="http://127.0.0.1:8000/register/{{$users['myref']}}" disabled>
                     <div class="input-group-append">
-                      <a class="js-clipboard input-group-text" href="javascript:copyrefer();" style="font-size: 1.7375rem;"  data-class-change-target="#linkIcon" data-default-class="fas fa-clone" data-success-class="fas fa-check">
+                      <a  onclick="myFunction()" class="js-clipboard input-group-text" href="javascript:copyrefer();" style="font-size: 1.7375rem;"  data-class-change-target="#linkIcon" data-default-class="fas fa-clone" data-success-class="fas fa-check">
                         <span id="linkIcon" class="fas fa-clone"></span>
                       </a>
                     </div>
@@ -751,5 +765,25 @@
              </div>
           
         </div>
+		<script>
+			function myFunction() {
+			  // Get the text field
+			  var copyText = document.getElementById("referralLink");
+			
+			  // Select the text field
+			  copyText.select();
+			  copyText.setSelectionRange(0, 99999); // For mobile devices
+			
+			   // Copy the text inside the text field
+			  navigator.clipboard.writeText(copyText.value);
+			
+			  // Alert the copied text
+			  alert("Copied the code: " + copyText.value);
+			}
+			
+			
+			
+				</script>
+
 
             @stop

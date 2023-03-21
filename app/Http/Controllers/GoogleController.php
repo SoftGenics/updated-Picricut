@@ -23,10 +23,19 @@ $user=User::where('email',$google_user->getEmail())->first();
 
 
 if(!$user){
+    $permitted_chars = '012789ab';
+    $input=$permitted_chars;
+        $input_length = strlen( $input);
+        $random_string = '';
+        for($i = 0; $i < $input_length; $i++) {
+            $random_character = $input[mt_rand(0, $input_length - 1)];
+            $random_string .= $random_character;
+        }
   $new_user =User::create([
     'name'=>$google_user->getName(),
     'email'=>$google_user->getEmail(),
     'google_id'=>$google_user->getId(),
+    'myref'=> $random_string
   ]);
  Auth::login($new_user);
  session()->put('users', $new_user);

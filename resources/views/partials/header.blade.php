@@ -83,9 +83,8 @@
         
               
         </div>
-      </li>
-                <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{ url('login') }}" style="font-size: 18px;color: #62646a;">Sign in</a></div></li>
-               <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{ url('signup') }}" style="font-size: 18px;color: #62646a;">Sign up</a></div></li>
+      </li>  <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{ route('login.show') }}" style="font-size: 16px;color: #62646a;">Sign in </a></div></li>
+      <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{ route('register.show') }}" style="font-size: 16px;color: #62646a;">Sign up</a></div></li>
         <li class="nav-item ">
         
       </li>

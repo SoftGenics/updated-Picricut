@@ -483,51 +483,36 @@ molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</p>
       </div>
     </div>
   </div>
-  <div id="pricing" class="pricing-tables">
-   
-    <div class="demo">
-    <div class="container">
-     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-            <h2>What <em>people</em> speak about <span>us...</span></h2>
-            <span>Our Ratings and reviews</span>
-          </div>
-        </div>
-      </div>
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8 ">
-                <div id="testimonial-slider" class="owl-carousel">
-                    <div class="testimonial">
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est. Sed mattis egestas elementum. Nulla facilisi. Quisque placerat risus ac nunc ornare tincidunt. Sed quis faucibus nunc. Pellentesque accumsan arcu mi, eget venenatis mauris.
-                        </p>
-                        <h3 class="title">williamson</h3>
-                        <span class="post">Web Developer</span>
-                    </div>
- 
-                    <div class="testimonial">
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est. Sed mattis egestas elementum. Nulla facilisi. Quisque placerat risus ac nunc ornare tincidunt. Sed quis faucibus nunc. Pellentesque accumsan arcu mi, eget venenatis mauris.
-                        </p>
-                        <h3 class="title">Kristina</h3>
-                        <span class="post">Web Designer</span>
-                    </div>
- 
-                    <div class="testimonial">
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, sapien lorem dictum lacus, non consequat odio ipsum nec est. Sed mattis egestas elementum. Nulla facilisi. Quisque placerat risus ac nunc ornare tincidunt. Sed quis faucibus nunc. Pellentesque accumsan arcu mi, eget venenatis mauris.
-                        </p>
-                        <h3 class="title">Miranda Joy</h3>
-                        <span class="post">Web Developer</span>
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8 ">
+        <div id="testimonial-slider" class="owl-carousel">
+            <div class="testimonial">
+                <p class="description">
+                  Excellent "platform" for connecting tutors and pupils. The Pircuit  staff is very helpful. They seem to enjoy working in a friendlier fashion all the time. Really, in this extremely competitive environment, it's wonderful for students, parents, and tutors as well.
+                </p>
+                <h3 class="title">Manoj gupta</h3>
+                <span class="post">Delhi</span>
+            </div>
+
+            <div class="testimonial">
+                <p class="description">
+                  This is a very helpful website that is also free, and they offer free mock tests as well as findings. This website really does amaze me.
+                </p>
+                <h3 class="title">T.K Agarwal</h3>
+                <span class="post">Bhopal</span>
+            </div>
+
+            <div class="testimonial">
+                <p class="description">
+                  I registered as a tutor on Pircuit two months ago. This platform gives me the confidence to start my own work and help me to grow within small time period. I reached to the potential client. Thank you LearnPick.
+                </p>
+                <h3 class="title">Miranda Joy</h3>
+                <span class="post">kolkata</span>
             </div>
         </div>
     </div>
-
-    </div>
-  </div>
+</div>
+</div>
     <div id="video" class="our-videos section">
     <div class="videos-left-dec">
       <img style="filter: brightness(0) saturate(100%) invert(39%) sepia(99%) saturate(393%) hue-rotate(100deg) brightness(87%) contrast(84%);" src="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/images/videos-left-dec.png" alt="">

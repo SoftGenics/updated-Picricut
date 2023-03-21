@@ -1,6 +1,4 @@
-
-      
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -105,7 +103,7 @@ ul .snav a span{
   text-transform: uppercase;
 }
 a:hover {
-  z-index:1;
+  z-index:999;
  
   border-bottom: 1px so.snavd rgba(0,0,0,.5);
   box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
@@ -130,7 +128,7 @@ font-size: 85px;
 	text-align:center;
   font-size:43px;
 	box-shadow: 2px 2px 3px #999;
-  z-index:100;
+  z-index:999;
 }
 
 .my-float{
@@ -141,7 +139,7 @@ font-size: 85px;
 	
 	bottom:70px;
 	right:40px;
-	z-index:100;
+	z-index:10;
 }
 .adiv{
 	background: #04CB28;

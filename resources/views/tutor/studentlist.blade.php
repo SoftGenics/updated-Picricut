@@ -13,6 +13,35 @@
                           </nav>
                         <h1 class="mb-0 fw-bold">Students</h1> 
                     </div>
+                    <div class="
+                col-lg-4 col-md-6
+                d-none d-md-flex
+                align-items-center
+                justify-content-end
+              ">
+              <select class="form-select theme-select border-0" aria-label="Default select example">
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+                <option value="3">Class 3</option>
+                <option value="4">Class 4</option>
+                <option value="5">Class 5</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+              </select>
+              &nbsp
+              <select class="form-select theme-select border-0" aria-label="Default select example">
+                <option value="1">3 months older</option>
+                <option value="2">1 year older</option>
+                <option value="3">oldest</option>
+              </select>
+              &nbsp
+              <a href="javascript:void(0)" class="btn btn-info d-flex align-items-center ms-2">
+                <i class="ri-add-line me-1"></i>
+                Filter
+              </a>
+                    </div>
                     
                 </div>
             </div>
@@ -25,10 +54,10 @@
                       <img src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/flexy-bootstrap/package/assets/images/users/1.jpg" class="rounded-3 img-fluid" width="90">
                       <div class="mt-n2">
                         <span class="badge bg-primary">name</span>
-                        <h4 class="mt-3">Matt Carlson</h4>
-                        <h6 class="card-subtitle">San Francisco, CA</h6>
+                        <h4 class="mt-3">Student name</h4>
+                        <h6 class="card-subtitle">class ,sujects</h6>
                       </div>
-                      <div class="row mt-3 justify-content-center">
+                      <div class="row mt-3 justify-content-center border-bottom">
                         <div class="col-6 col-xl-3">
                           <div class="
                               py-2
@@ -40,8 +69,8 @@
                             ">
                             <span class="text-warning"><i class="ri-star-line fs-7"></i></span>
                             <div class="ms-2 text-start">
-                              <h6 class="fw-normal text-muted mb-0">Reviews</h6>
-                              <h4 class="mb-0">368</h4>
+                              <h6 class="fw-normal text-muted mb-0">Tutors</h6>
+                              <h4 class="mb-0">3</h4>
                             </div>
                           </div>
                         </div>
@@ -56,12 +85,21 @@
                             ">
                             <span class="text-primary"><i class="ri-camera-lens-fill fs-7"></i></span>
                             <div class="ms-2 text-start">
-                              <h6 class="fw-normal text-muted mb-0">Photos</h6>
-                              <h4 class="mb-0">1200</h4>
+                              <h6 class="fw-normal text-muted mb-0">Badges</h6>
+                              <h4 class="mb-0">12</h4>
                             </div>
                           </div>
                         </div>
+
+                        
                       </div>
+                      <a href="#" class="
+                          btn btn-light-success
+                          text-success
+                          font-weight-medium
+                          d-block
+                          w-100
+                        ">Message</a>
                     </div>
                   </div>
                 </div>

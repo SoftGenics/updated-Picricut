@@ -67,5 +67,18 @@ $(document).ready(function(){
         autoPlay:true
     });
 });
-
+$("#testimonial-slider").owlCarousel({
+      loop:true,
+        items:1,
+        itemsDesktop:[1000,1],
+        itemsDesktopSmall:[979,1],
+        itemsTablet:[768,1],
+        nav:true,
+        pagination:true,
+        navigation:true,
+        navigationText:["",""],
+        autoplay:true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:true
+    });
   </script>

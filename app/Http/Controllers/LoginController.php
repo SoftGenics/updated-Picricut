@@ -43,8 +43,12 @@ class LoginController extends Controller
                    session()->put('userimage',$img);
                 }
                 alert()->message('Login successfully');
+                if($user->category){
+                    return redirect()->intended('my-notification/loginsuccess');  
+                }
+                else{
                 return redirect()->intended('my-notification/success');
-                
+            }
         }
         else{
             alert()->message('Email and password does not match');

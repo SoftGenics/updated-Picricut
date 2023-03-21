@@ -29,7 +29,12 @@
             @php
             $users=session()->get('users');
             $user_id=$users['id'];
+           
+            $image=\App\Models\Profile_pics::where('user_id',  $user_id)->first();
+            $user=\App\Models\Profile::where('user_id',  $user_id)->first();
             @endphp
+
+      
             <div class="container-fluid">
               
                 <div class="row">
@@ -40,9 +45,9 @@
                             <div class="alert alert-success" role="alert" id="successMessage" style="display: none"></div>
                             <div class="card-body">
                                 <center class="m-t-30"> 
-                                    @if(Session::get('userimage'))
+                                    @if($image)
                                     
-                                    <img src="{{session()->get('userimage')}}" id="imgPreview" alt="pic" style="
+                                    <img src="{{$image['image']}}" id="imgPreview" alt="pic" style="
                                     height: 150px;
                                     width: 150px;"
                                         class="rounded-circle" width="150" />
@@ -59,8 +64,8 @@
                                                 <input id="fileUpload"  type="file">
                                             </label>
                                         </div>
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                    <h4 class="card-title m-t-10">{{$user['name']}}</h4>
+                                    {{-- <h6 class="card-subtitle">Accoubts Manager Amix corp</h6> --}}
                                     <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i
                                                     class="icon-people"></i>
@@ -77,9 +82,9 @@
                                 <hr>
                             </div>
                             <div class="card-body"> <small class="text-muted">Email address </small>
-                                <h6>hannagover@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
-                                <h6>+91 654 784 547</h6> <small class="text-muted p-t-30 db">Address</small>
-                                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
+                                <h6>{{$users['email']}}</h6> <small class="text-muted p-t-30 db">Phone</small>
+                                <h6>{{$user['whatappno']}}</h6> <small class="text-muted p-t-30 db">Address</small>
+                                <h6>{{$user['address']}}</h6>
                                 <div class="map-box">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
@@ -98,68 +103,71 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2">
+                                <form class="form-horizontal form-material mx-2" action="{{route('details-update')}}" method="post">
+                                    @csrf
+       
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="your name"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="your name" name="name"
+                                                class="form-control form-control-line" value="{{$user['name']}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Parent Name/Student name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="if a student, your parent's name or vice versa"
-                                                class="form-control form-control-line">
+                                            <input type="text" name="psname" placeholder="if a student, your parent's name or vice versa"
+                                                class="form-control form-control-line"  value="{{$user['psname']}}">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                    {{-- <div class="form-group">
+                                        <label for="example-email" class="col-md-12" >Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com"
-                                                class="form-control form-control-line" name="example-email"
-                                                id="example-email">
+                                            <input type="email" 
+                                                class="form-control form-control-line" name="email"
+                                                id="example-email" value="{{$user['email']}}">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     
                                     <div class="form-group">
                                         <label class="col-md-12">Phone No</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="123 456 7890" name="whatappno"
+                                                class="form-control form-control-line" value="{{$user['whatappno']}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" name="address"class="form-control form-control-line"></textarea>
+                                            <textarea rows="5" name="address" class="form-control form-control-line">{{$user['address']}}</textarea>
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-md-12">City</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="city name"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="city name" name="city"
+                                                class="form-control form-control-line" value="{{$user['city']}}">
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-md-12">State</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="state"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="state" name="state"
+                                                class="form-control form-control-line" value="{{$user['state']}}">
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-md-12">Pincode</label>
                                         <div class="col-md-12">
-                                            <input type="number" placeholder="Pincode"
-                                                class="form-control form-control-line">
+                                            <input type="number" placeholder="Pincode" name="pincode"
+                                                class="form-control form-control-line" value="{{$user['pincode']}}"> 
                                         </div>
                                     </div>
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-sm-12">Select Country</label>
                                         <div class="col-sm-12">
-                                            <select class="form-select shadow-none form-control-line">
+                                            <select class="form-select shadow-none form-control-line" name="country" >
+                                                <option>{{$user['country']}}</option>
                                                 <option>London</option>
                                                 <option>India</option>
                                                 <option>Usa</option>
@@ -167,10 +175,10 @@
                                                 <option>Thailand</option>
                                             </select>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success text-white">Update Profile</button>
+                                            <button type="submit" class="btn btn-success text-white">Update Profile</button>
                                         </div>
                                     </div>
                                 </form>

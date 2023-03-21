@@ -15,10 +15,23 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        
+        $permitted_chars = '012789ab';
+        $input=$permitted_chars;
+            $input_length = strlen( $input);
+            $random_string = '';
+            for($i = 0; $i < $input_length; $i++) {
+                $random_character = $input[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+            }
+            
+
+
         if (! $request->expectsJson()) {
             $id=$request->id;
             $user = User::find($id);
             $user->emailvery = true;
+            $user->myref =$random_string;
            
             $user->update();
            

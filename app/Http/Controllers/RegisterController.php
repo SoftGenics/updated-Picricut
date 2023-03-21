@@ -38,6 +38,8 @@ class RegisterController extends Controller
     }
    
     public function updateuser(Request $request){
+
+        
         $users=session()->get('users');
         $id=$users['id'];
         $user=User::find($id);

@@ -1,13 +1,33 @@
 @extends ('layouts.user')
 @section('content')
+@if(Session::has('users'))  
+
+
+@php
+$users =Session::get('users');  
+if($users['category']==1){
+    $cat=2;
+}
+else{
+   $cat=1;
+}
+@endphp 
+@if(!$users['category']){
+    @include('pages.categories')
+}
+@endif
+@else
+@include('pages.signin')
+@endif
+
  
 
-  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
 
 <div class="page-wrapper">
-          
+  @include('sweet::alert')
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-6">
@@ -28,17 +48,20 @@
                   <div class="card">
                 <div class="card-body">
                   <h4 class="mb-3">Write a query</h4>
-                  <form method="post">
-                      <div class="card">
-               <textarea id="summernote" name="editordata"></textarea>
-              </div>
-                    <button type="button" class="mt-3 btn waves-effect waves-light btn-success">
-                      Send
-                    </button>
-                    <button type="button" class="mt-3 btn waves-effect waves-light btn-info">
-                      Send &amp; close
-                    </button>
-                  </form>
+                  <form method="post" action="{{route('ticket-add')}}">
+                    @csrf
+                                  
+                                   <input type="hidden" name="user_id" value="{{$users['id'] }}" />
+                     <div class="card">
+              <textarea id="summernote" name="ticket" ></textarea>
+             </div>
+                   <button type="submit" class="mt-3 btn waves-effect waves-light btn-success">
+                     Send
+                   </button>
+                   {{-- <button type="button" class="mt-3 btn waves-effect waves-light btn-info">
+                     Send &amp; close
+                   </button> --}}
+                 </form>
                 </div>
               </div>
             </div>
