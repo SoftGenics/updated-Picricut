@@ -152,6 +152,9 @@ Route::get('/badges', function () {
 //ends
 Route::post('update-image',[Profile_picController::class,'update_image'])->name('update-image');
 Route::post('details',[Profile_picController::class,'details_update'])->name('details-update');
+Route::post('update-blog',[Blogs_Controller::class,'update_blog'])->name('update-blog');
+Route::post('update_comment',[Blogs_Controller::class,'update_comment'])->name('update_comment');
+Route::post('update_rating',[Blogs_Controller::class,'update_rating'])->name('update_rating');
 
 Route::post('ticket',[ticketController::class,'ticket'])->name('ticket-add');
 Route::post('addrequirment',[srequirementController::class,'addrequirment'])->name('add_requirment');
